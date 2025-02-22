@@ -1,0 +1,45 @@
+import requests
+import pandas as pd
+headers = {'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36',}
+json_data = {
+    'qimei36': '0_dGzaX4JRJpr9A',
+    'forward': '2',
+    'base_req': {'from': 'pc',},
+    # 'flush_num': 1,
+    'channel_id': 'news_news_tech',
+    'device_id': '0_d6367ad6381c3',
+    'is_local_chlid': '',}
+response = requests.post('https://i.news.qq.com/web_feed/getPCList', headers=headers, json=json_data)
+data=pd.DataFrame(response.json()['data'])
+newslist=[]
+sorted_list=[]
+keywords=['DeepSeek','AI','机器人','芯片','飞行器','低空经济','人工智能','航天','航空','半导体','脑机','材料','机器狗','能源','马斯克','算力','杭州','浙江','科技',]
+for i in range(0,len(data)):
+    if i==0:
+        data_0=data.sub_item[0]
+        for k in range(0,len(data_0)):
+            # print(data_0[k]["title"],data_0[k]["publish_time"])
+            news=[k+1,data_0[k]["title"],data_0[k]["publish_time"]]
+            newslist.append(news)
+    else:
+        # print(data.title[i], data.publish_time[i])
+        news = [i+5, data.title[i], data.publish_time[i]]
+        newslist.append(news)
+for w in keywords:
+    for t in range(0,len(newslist)):
+        if w in str(newslist[t]):
+            sorted_list.append(newslist[t])
+print(sorted_list)
+# print(newslist)
+# 去掉重复项
+unique_data = list(set(tuple(item) for item in sorted_list))
+
+# 按序号从小到大排序
+sorted_data = sorted(unique_data, key=lambda x: x[0])
+
+# 转换回列表形式
+sorted_data = [list(item) for item in sorted_data]
+
+# 打印结果
+for item in sorted_data:
+    print(item)
