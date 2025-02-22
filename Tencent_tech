@@ -43,3 +43,18 @@ sorted_data = [list(item) for item in sorted_data]
 # 打印结果
 for item in sorted_data:
     print(item)
+
+
+
+# self.company_data = [
+        #     {"id": 1, "company": "杭州移动", "news": "杭州移动今日开启全国第一个6G试点基站", "date": "2025-01-22"},
+        #     {"id": 2, "company": "浙江国创", "news": "浙江国创与华为达成战略合作", "date": "2025-01-23"},
+        #     {"id": 3, "company": "阿里巴巴", "news": "阿里巴巴发布新一代云计算平台", "date": "2025-01-24"},
+        #     {"id": 4, "company": "腾讯科技", "news": "腾讯推出全新社交应用", "date": "2025-01-25"},
+        #     {"id": 5, "company": "百度", "news": "百度发布新一代搜索引擎", "date": "2025-01-26"},
+        #     {"id": 6, "company": "字节跳动", "news": "字节跳动推出全新短视频平台", "date": "2025-01-27"},
+        #     {"id": 7, "company": "华为", "news": "华为发布新一代5G芯片", "date": "2025-01-28"},
+        #     {"id": 8, "company": "小米", "news": "小米推出全新智能家居产品", "date": "2025-01-29"},
+        #     {"id": 9, "company": "京东", "news": "京东推出全新物流系统", "date": "2025-01-30"},
+        #     {"id": 10, "company": "美团", "news": "美团推出全新外卖服务", "date": "2025-01-31"},
+        # ]
